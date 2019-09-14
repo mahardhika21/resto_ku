@@ -335,12 +335,12 @@
         });
     </script>
     <script type="text/javascript">
-      function delete_menu(id)
+      function nonaktif(id)
          {
 
           swal({
             title: 'Are you sure?',
-            text: "apakah anda yakin ingin menghapus data menu ini?",
+            text: "apakah anda yakin ingin membatalkan pessanan ini?",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -354,19 +354,30 @@
               // console.log(isConfirm.dismiss);
          // ajax delete data to database
                $.ajax({
-                url : "<?php echo site_url('admin/backend/ajax_delete_menu')?>/"+id,
+                url : "<?php echo site_url('waiter/backend/ajax_canceled_reservation')?>/",
                 type: "POST",
                 dataType: "JSON",
-                success: function(data)
+                data    : {id:id},
+                success: function(resp)
                 {
                          
-
-                         reload_table();
+                    if(resp.success == 'true')
+                    {
+                      reload_table();
                          swal(
                           'Deleted!',
-                          'data menu berhasil di hapus',
+                          'data reservation berhasil di batalkan',
                           'success'
                           );
+                    }else{
+                      Swal.fire({
+                        type  : 'error',
+                        title : 'proses gagal',
+                        text  : resp.message,
+                       // footer: '<a href>Why do I have this issue?</a>'
+                      });
+                    }
+                         
                        },
                        error: function (jqXHR, textStatus, errorThrown)
                        {

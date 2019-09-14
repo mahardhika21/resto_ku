@@ -1,0 +1,36 @@
+user
+  - admin
+     username : admin
+     password : 123456
+  - hak akse
+     - kelola data menu
+     - kelaola data user
+     - kelola profile
+
+user
+  - kasir
+     username : kasir01
+     password : 123456
+  - hak akse
+     - melakukan proses pembayaran
+     - kelaola data pemesanan
+     - kelola profile
+ user
+  - waiter
+     username : waiter01
+     password  : waiter01
+  - hak akse
+     - melakukan proses pembayaran
+     - kelaola data pemesanan
+     - kelola profile 
+
+api
+  - login api
+     - {url}/api/LoginToken
+       - input {username,password}
+  - get data menu
+     - {url}/api/menu_makanan
+       - input token
+  - get detail data menu
+     - {url}/api/detail_menu
+       - input token,id_menu

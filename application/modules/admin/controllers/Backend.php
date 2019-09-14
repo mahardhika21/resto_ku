@@ -72,7 +72,7 @@ class Backend extends MX_Controller
 					"password"   => sha1($datum['username']),
 					"level"      => $datum['level']
 				);
-		   $this->logs->log_register($datum['username'],$datum['level'],'register');
+		   $this->logs->log_register('register',$datum['username'],$datum['level'],'register');
 
 			$this->M_admin->add_user($user);
 			redirect('admin/user');

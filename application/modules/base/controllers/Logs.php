@@ -162,13 +162,13 @@ class Logs extends MX_COntroller
     						"url_logs"   => "/admin/backend/update_data_menu",
     						"id_user"    => $data['id'],
     					);
-    	}elseif ($type == 'delete') 
+    	}elseif ($type == 'cancel') 
     	{
     		$arr_data = array
     					(
-    						"title_logs" => "delete data menu",
-    						"desc_logs"  => "admin ". $data['username'] ." menghapus ". $menu,
-    						"url_logs"   => "/admin/backend/ajax_delete_menu",
+    						"title_logs" => "cancel data reservation",
+    						"desc_logs"  => "user ". $data['username'] ." membatalkan pesanan dengan id pesanan ". $nomor,
+    						"url_logs"   => "/backend/ajax_canceled_reservation",
     						"id_user"    => $data['id'],
     					);	
     	}elseif($type == 'payment') 

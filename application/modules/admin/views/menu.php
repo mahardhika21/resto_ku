@@ -363,6 +363,7 @@
                          
 
                          reload_table();
+                         window.location.reload();
                          swal(
                           'Deleted!',
                           'data menu berhasil di hapus',

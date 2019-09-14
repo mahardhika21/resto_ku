@@ -280,5 +280,19 @@ class Backend extends MX_Controller
         // echo '<pre>'.print_r($data, true).'</pre>';
         // echo $nm_reserv;
     }
+  public function ajax_canceled_reservation()
+    {
+        $id = $this->input->post('id');
+        $arr_data = array("status_resev"=>"canceled");
 
+        if($this->M_reservation->update($id,$arr_data))
+        {
+            $this->logs->logs_reservation('cancel',$id);
+            echo json_encode(array('success' => 'true','message'=> 'canceled success'));
+        }
+        else
+        {
+            echo json_encode(array('success' => 'false','message'=> 'canceled reservation error'));
+        }
+    }
 }
