@@ -1,3 +1,4 @@
+jalankan dengan PHP 5.6 agar setabil
 user
   - admin
      username : admin
